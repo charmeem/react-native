@@ -1,0 +1,53 @@
+React NAtive Lazy:
+1. install java jdk
+2. INstall node.js
+3. install python2 ?? dont know.
+4. install android studio.
+   - I have to change the android sdk directory to E:/ from sdk manger in order to give ample space for new sdk packages to download.
+   - I uninstalled from windows system android old sdk packages.
+5. Install react native CLI
+   npm install -g react-native cli
+6. Genarate new react native project by using react native cli.
+   react-native init albums
+7.eslint:
+1. Tried to use android studio as react-native editor but it does not support js files
+Therefore I choose intelliJ.
+  - downloaded eslint seperate from internet.
+  - intellij->settings->plugin I choose install plugin localy from saved file. Restarted intellij.
+  - Then ran following command in window cmd terminal: E/reactnative/albums( this is my project)
+    npm install --save-dev eslint-config-rallyconding
+    - I had to close all AVD and Android studio and twice ran the above command.
+  - To let RN project use eslint we have to create .eslintrc file in project foldr. #this needs in every project that we create in the future.
+
+8. Start and studio , avd manger and launch android simultor.
+8'. IMPORTANT:
+    -  Open react native project- android file in android studio.
+       IMPORTANT : We need to repeat above for every new project created in react native so that gradle is created.
+
+    - First Time run the missing files for SDK
+     - Then enter Java environment variable and path in windows system
+    - For eve         
+9. From react native cli , project directory run project that will put the js program output to the android simulator.
+   After you develop a program Run following command:
+   
+   react-native run-android
+
+10. Cannot get import {Component} library recognized in intellij
+    Run in project directory following command and the restart the intellij project.
+    npm install @types/react --save
+
+11. 'unable to connect with remote debugger'
+    go to control-m-> Dev settings-> Debug serverhost... and enter 
+    localhost:8081
+
+12. Error on simulator when remote js debug is active
+    "Cannot add a child that doesn't have YogaNode to a parent without a measure function "
+    Closed chrome window and restarted .    
+
+13. After creating new project in react-native grtting error when running 
+react-native run-android
+
+" execution failed for task ' transformclasseswithdexfordebug' ....."
+
+solution: in project/android directory run gadlew clean command
+then run project again 
