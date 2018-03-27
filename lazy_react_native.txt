@@ -43,6 +43,7 @@ Therefore I choose intelliJ.
 12. Error on simulator when remote js debug is active
     "Cannot add a child that doesn't have YogaNode to a parent without a measure function "
     Closed chrome window and restarted .    
+    Solved: After removing some comments in component sections.
 
 13. After creating new project in react-native grtting error when running 
 react-native run-android

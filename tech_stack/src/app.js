@@ -12,7 +12,7 @@ const App = () => {
          Provider as per rules cannot have Multiple childs
          Thats why we are enclosing all coming components under single View Tag. */
         <Provider store={createStore(reducers)}>
-            < View >
+            < View style={{ flex:1 }}>
                 <Header headerText= " Mufti Tech Stack " />
                 <LibraryList/>
             </View>

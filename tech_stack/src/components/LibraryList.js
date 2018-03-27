@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { ListView } from 'react-native';
+// ListView is a tool to avoid memory conjestion by creaing component for the items
+// only visible on the screen. Rather then creating components for all the items.
+
 import { connect } from 'react-redux';
 import ListItem from './ListItem';
 
@@ -10,9 +13,10 @@ class LibraryList extends Component {
         });
 
         this.dataSource = ds.cloneWithRows(this.props.libraries);
-
+        //this.props.libraries is hooked from mapStateToProps function below
     }
 
+    // Renders single library
     renderRow(library) {
         console.log(library);
         return (
@@ -33,7 +37,7 @@ class LibraryList extends Component {
 }
 
 const mapStateToProps =  state => {
-    return {libraries: state.libraries}; // libraries ket is returned as a prop in LibraryListClass
+    return {libraries: state.libraries}; // libraries key is returned as a prop in LibraryListClass
 };
 
 export default connect(mapStateToProps)(LibraryList);

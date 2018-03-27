@@ -43,5 +43,11 @@
     "id": 8,
     "title": "Axios",
     "description": "Promise based HTTP client for the browser and node.js. With Axios, you can make XMLHttpRequests from the browser or Node with the full Promise Api."
+  },
+  {
+    "id": 9,
+    "title": "Redux-Thunk",
+    "description": "Redux Thunk middleware allows you to write action creators that return a function instead of an action. The thunk can be used to delay the dispatch of an action, or to dispatch only if a certain condition is met."
   }
+
 ]
