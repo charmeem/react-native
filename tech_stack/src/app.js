@@ -8,9 +8,11 @@ import LibraryList from './components/LibraryList';  // component that fetches d
 
 const App = () => {
     return (
+
         /* Provider glues redux with react-native
          Provider as per rules cannot have Multiple childs
          Thats why we are enclosing all coming components under single View Tag. */
+
         <Provider store={createStore(reducers)}>
             < View style={{ flex:1 }}>
                 <Header headerText= " Mufti Tech Stack " />

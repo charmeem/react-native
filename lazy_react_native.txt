@@ -52,3 +52,7 @@ react-native run-android
 
 solution: in project/android directory run gadlew clean command
 then run project again 
+
+14. Library list exercise:
+    action creator does not dispatch my payload to the redux-reducer while it was receiving it. seen in console.log.
+    Solution: payload property in my action creator is defined with '' where as it should be without ''

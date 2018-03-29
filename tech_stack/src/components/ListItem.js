@@ -5,14 +5,30 @@ import { CardSection } from './common';
 import * as actions from '../actions';
 
 class ListItem extends Component {
+
     renderDescription() {
+        console.log(this.props);
+        const {library, selectedLibraryId} = this.props;
+        if (library.id === selectedLibraryId) {
+            return (
+                <Text>
+                    {library.description}
+                </Text>
+            );
+        }
 
     }
+
     render() {
-        const { title, id } = this.props.library;
+        //console.log(this.props);
+        const { id, title } = this.props.library;
+        /* library state is a prop received from LibraryList component */
+
         const { titleStyle } = styles;
-        /* Using View as more then one card section is used */
+
+        /* selectLibrary below is action creator that sends action to the reducer while onPress */
         return (
+
             <TouchableWithoutFeedback
                 onPress ={() => this.props.selectLibrary(id)}
             >
@@ -25,7 +41,7 @@ class ListItem extends Component {
                     {this.renderDescription()}
                 </View>
             </TouchableWithoutFeedback>
-        )
+        );
     }
 }
 
@@ -35,18 +51,28 @@ const styles = {
         paddingLeft:10
     }
 };
-/* Created to compare selectedID with  stored id in the library*/
+
 const mapStateToProps = state => {
-    return {
-        selectedLibraryId: state.selectedLibraryId
-    };
-}
+    //console.log(state);
+    return { selectedLibraryId: state.selectedLibraryId };
+};
+
+// selectedLibraryId is a property of object fetched from
+//   SelectionReducer(see index.js) and send as a prop to ListItem above
+
+
 export default connect(mapStateToProps, actions)(ListItem);
+
 //export default connect(null, actions)(ListItem);
+//null means instead of using mapStateToProp return null.
 
 /* understanding connect arguments:
-   null means instead mapStateToProp return null.
    actions does two things.
     1. It dispatches action creator from action/index file via Reducers to Redux Store
     2. It passes action objects as a props to ListItem function above
+
+       So the above ListItem function receives three props:
+       - one 'library' from libraryReducer
+       - second is 'selectedLibrary' ID from SelectionReducer and
+       - third is 'selectLibrary' ,an  action from action creator
  */

@@ -1,10 +1,11 @@
 /*  Action Creator
-    when we export many functions we use only
-    export instead of export default */
+    export is used for multiple functions instead of export default
+*/
 
 export const selectLibrary = (libraryId) => {
+    //console.log(libraryId);
     return {
         type: 'select_library',
-        payload: 'libraryId'
+        payload: libraryId
     };
 };
