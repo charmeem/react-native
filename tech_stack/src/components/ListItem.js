@@ -7,9 +7,10 @@ import * as actions from '../actions';
 class ListItem extends Component {
 
     renderDescription() {
+
         console.log(this.props);
-        const {library, selectedLibraryId} = this.props;
-        if (library.id === selectedLibraryId) {
+        const {library, expanded } = this.props;
+        if (expanded) {
             return (
                 <Text>
                     {library.description}
@@ -52,9 +53,10 @@ const styles = {
     }
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
     //console.log(state);
-    return { selectedLibraryId: state.selectedLibraryId };
+    const expanded = state.selectedLibraryId === ownProps.library.id;
+    return { expanded };
 };
 
 // selectedLibraryId is a property of object fetched from
@@ -69,7 +71,7 @@ export default connect(mapStateToProps, actions)(ListItem);
 /* understanding connect arguments:
    actions does two things.
     1. It dispatches action creator from action/index file via Reducers to Redux Store
-    2. It passes action objects as a props to ListItem function above
+    2. It passes action object selectLibrary as a props to ListItem function above
 
        So the above ListItem function receives three props:
        - one 'library' from libraryReducer

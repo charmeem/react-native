@@ -1,7 +1,5 @@
-// This reducer has an action associated, dispatched by action creator in index.js
-// state=null initializes state variable
 export default (state = null, action) => {
-    console.log(action);
+    console.log(state, action);
     switch (action.type) {
         case 'select-library':
             return action.payload;
