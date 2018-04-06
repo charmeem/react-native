@@ -1,7 +1,6 @@
 export default (state = null, action) => {
-    console.log(state, action);
     switch (action.type) {
-        case 'select-library':
+        case 'select_library':            //type here should strictly match the type in action creator
             return action.payload;
         default:
             return state;

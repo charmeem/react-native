@@ -10,8 +10,8 @@ React NAtive Lazy:
 6. Genarate new react native project by using react native cli.
    react-native init albums
 7.eslint:
-1. Tried to use android studio as react-native editor but it does not support js files
-Therefore I choose intelliJ.
+  - Tried to use android studio as react-native editor but it does not support js files
+   Therefore I choose intelliJ.
   - downloaded eslint seperate from internet.
   - intellij->settings->plugin I choose install plugin localy from saved file. Restarted intellij.
   - Then ran following command in window cmd terminal: E/reactnative/albums( this is my project)
@@ -19,18 +19,33 @@ Therefore I choose intelliJ.
     - I had to close all AVD and Android studio and twice ran the above command.
   - To let RN project use eslint we have to create .eslintrc file in project foldr. #this needs in every project that we create in the future.
 
-8. Start and studio , avd manger and launch android simultor.
+7' - Install Redux and react-reduc library in the newly created rpoject directory.
+     npm install --save react-redux redux
+      - Sometimes error 4058 occurs, Solution is rerun the above command
+
+7''- Go and ccreate some cboiler plate files and code like, src directory, App.js file and index.js file.
+
+8. Start andoid studio , avd manger and launch android simultor.
 8'. IMPORTANT:
     -  Open react native project- android file in android studio.
        IMPORTANT : We need to repeat above for every new project created in react native so that gradle is created.
 
     - First Time run the missing files for SDK
      - Then enter Java environment variable and path in windows system
-    - For eve         
+             
 9. From react native cli , project directory run project that will put the js program output to the android simulator.
    After you develop a program Run following command:
    
    react-native run-android
+
+9'. Firebase:
+    -install firebase from project directory
+      : npm intall --save firebase
+    - Go to console.firebase.google - create new project- enable email signup- copy web authentication key and
+      paste in App.js component.
+
+    - ERROR: -4048 for above command
+      Solution: disable antivirus and windows defender
 
 10. Cannot get import {Component} library recognized in intellij
     Run in project directory following command and the restart the intellij project.
@@ -56,3 +71,6 @@ then run project again
 14. Library list exercise:
     action creator does not dispatch my payload to the redux-reducer while it was receiving it. seen in console.log.
     Solution: payload property in my action creator is defined with '' where as it should be without ''
+15. Still Redux not receiving selection state hence the list not expanding.
+    Solution: Type in action cretor and the selection reducer does not MATCHING!!
+               it was library_list in AC and library-list in Reducer.....
