@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Card, CardSection, Input, Button } from './common';
-import { emailChanged, passChanged } from '../actions';
+import { emailChanged, passChanged, loginUser } from '../actions';
 
 // 'onChangeText' event trigger a call back function 'onEmailChanged'
 //This call back function triggers action creator"emailChanged" via connect helper function defined below.
@@ -10,37 +10,45 @@ import { emailChanged, passChanged } from '../actions';
 class LoginForm extends Component {
 
     onEmailChange(text){
-                this.props.emailChanged(text);
+                this.props.emailChanged(text);  // send to redux via action creator
     }
 
     onPassChange(text) {
-        this.props.passChanged(text);
+        this.props.passChanged(text);     // send to redux via action creator
+    }
+
+    onButtonPress() {
+        console.log(this.props);
+        const { email, password } = this.props;  // passed from redux via mapStateToProps
+        this.props.loginUser({email, password });                   // send to redux via action creator
     }
     render() {
+
         return (
           <Card>
               <CardSection>
                   <Input
                       label="Email"
                       placeholder="mmufti@hotmail.com"
-                      onChangeText={this.onEmailChange.bind(this)}
-                      value={this.props.email}
+                      onChangeText={this.onEmailChange.bind(this)}  /*send to redux via action creator */
+                      value={this.props.email}                     /* received from Redux */
                   />
               </CardSection>
-
 
               <CardSection>
                   <Input
                       secureTextEntry
                       label="Password"
                       placeholder="password"
-                      onChangeText:={this.onPassChange.bind(this)}
-                      value={this.props.password}
+                      onChangeText={this.onPassChange.bind(this)}        /*send to redux via action creator */
+                      value={this.props.password}                        /* received from Redux */
                   />
               </CardSection>
 
               <CardSection>
-                  <Button>
+                  <Button
+                      onPress={this.onButtonPress.bind(this)}          /*send to redux via action creator */
+                  >
                       Login
                   </Button>
               </CardSection>
@@ -59,4 +67,4 @@ const mapStateToProps = state => {
 };
 
 // Using connect to hook action creator 'emailchanged' here.
-export default connect(mapStateToProps, { emailChanged, passChanged })(LoginForm);
+export default connect(mapStateToProps, { emailChanged, passChanged, loginUser })(LoginForm);

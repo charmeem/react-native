@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+// applyMiddleware above is library used for redux-thunk
+import ReduxThunk from 'redux-thunk';
 import reducers from './reducers';
 import firebase from 'firebase';
 import LoginForm from './components/LoginForm';
@@ -22,8 +23,11 @@ class App extends Component {
     }
 
     render() {
+        const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+        // argument {} is used for initial value if needed, applyMid.. is known as store enhancer , adding redux thunk functionality
+
         return (
-            <Provider store={createStore(reducers)}>
+            <Provider store={ store }>
                 < LoginForm/>
             </Provider>
         );
