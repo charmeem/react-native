@@ -48,7 +48,7 @@ React NAtive Lazy:
       Solution: disable antivirus and windows defender
 
 10. Cannot get import {Component} library recognized in intellij
-    Run in project directory following command and the restart the intellij project.
+    Run in project directory following command and the restart the intellij project. 03361680786/ warid 03406056752
     npm install @types/react --save
 
 11. 'unable to connect with remote debugger'
@@ -74,3 +74,13 @@ then run project again
 15. Still Redux not receiving selection state hence the list not expanding.
     Solution: Type in action cretor and the selection reducer does not MATCHING!!
                it was library_list in AC and library-list in Reducer.....
+16. getting error on simulator after changing dev setting for remote debugging.
+    " unable to load script from assets index.android.bundle "
+Solution: I corrected dev setting from localhost:8080  to localhost:8081
+
+17. Error on simulator "(0, reactNative.connect) is not function"
+    SOlution: mistyped 'react-native' instead of 'react-redux' in import {connect} statement.
+
+18.:cannot read property bind of undefined.
+Solution : I typed "{this.onEmailChange().bind(this)}" instead of
+                    {this.onEmailChange.bind(this)}
