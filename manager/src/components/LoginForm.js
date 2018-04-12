@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { View , Text} from 'react-native';
 import { connect } from 'react-redux';
-import { Card, CardSection, Input, Button } from './common';
+import { Card, CardSection, Input, Button, Spinner } from './common';
 import { emailChanged, passChanged, loginUser } from '../actions';
 
 // 'onChangeText' event trigger a call back function 'onEmailChanged'
@@ -22,6 +23,33 @@ class LoginForm extends Component {
         const { email, password } = this.props;  // passed from redux via mapStateToProps
         this.props.loginUser({email, password });                   // send to redux via action creator
     }
+
+    //Error function to be run when Error state received from Redux
+    renderError() {
+        if (this.props.error) {
+            return (
+                <View style={{backgroundColor:'white'}}>
+                    <Text style={styles.errorTextStyle}>
+                        {this.props.error}
+                    </Text>
+                </View>
+            );
+
+        }
+    }
+    // renders Spinner when login button pressed and spinner action creator triggered
+    renderButton() {
+        if (this.props.loading) {
+            return ( <Spinner size="large" /> );
+        }
+        return (
+        <Button onPress={this.onButtonPress.bind(this)}   /*send to redux via action creator */
+        >
+            Login
+        </Button>
+        );
+    }
+
     render() {
 
         return (
@@ -45,12 +73,10 @@ class LoginForm extends Component {
                   />
               </CardSection>
 
+              {this.renderError()}
+
               <CardSection>
-                  <Button
-                      onPress={this.onButtonPress.bind(this)}          /*send to redux via action creator */
-                  >
-                      Login
-                  </Button>
+                  {this.renderButton()}
               </CardSection>
 
           </Card>
@@ -58,11 +84,21 @@ class LoginForm extends Component {
     }
 }
 
+const styles = {
+    errorTextStyle:{
+        fontSize:20,
+        alignSelf:'center',
+        color:'red'
+    }
+
+};
 // This function will pass the email & password property of state object from Redux to the login component above
 const mapStateToProps = state => {
     return {
         email: state.auth.email,
-        password: state.auth.password
+        password: state.auth.password,
+        error: state.auth.error,
+        loading: state.auth.loading
     };
 };
 
