@@ -84,3 +84,12 @@ Solution: I corrected dev setting from localhost:8080  to localhost:8081
 18.:cannot read property bind of undefined.
 Solution : I typed "{this.onEmailChange().bind(this)}" instead of
                     {this.onEmailChange.bind(this)}
+
+19. After statrting implementing react-native-router-flux for navigation application I get following error in nodejs console:
+    
+    unable to resolve module `react/lib/reactcomponentwithpurerendermixin react-native-router-flux
+    npm WARN react-addons-pure-render-mixin@15.0.2 requires a peer of react@^15.0.2 ...
+
+   Solution: I did new install of react and flux as below:
+             npm intall --save react
+              npm install --save react-native-router-flux
