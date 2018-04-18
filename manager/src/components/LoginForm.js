@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import { Card, CardSection, Input, Button, Spinner } from './common';
 import { emailChanged, passChanged, loginUser } from '../actions';
 
-// 'onChangeText' event trigger a call back function 'onEmailChanged'
-//This call back function triggers action creator"emailChanged" via connect helper function defined below.
-// It sends Text typed in Input field to reducer via action creator' payload property. Reducer saves this state in its store. and renders back to react component.
+// e.g. 'onChangeText' event trigger a call back function 'onEmailChanged'
+//This call back function triggers action creator "emailChanged" via connect helper function
+// defined below.
+// It sends Text typed in Input field to reducer via action creator's payload property.
+// Reducer saves this state in its store. and renders back to react component here.
 
 class LoginForm extends Component {
 
@@ -19,7 +21,7 @@ class LoginForm extends Component {
     }
 
     onButtonPress() {
-        console.log(this.props);
+        //console.log(this.props);
         const { email, password } = this.props;  // passed from redux via mapStateToProps
         this.props.loginUser({email, password });                   // send to redux via action creator
     }
@@ -92,7 +94,8 @@ const styles = {
     }
 
 };
-// This function will pass the email & password property of state object from Redux to the login component above
+
+// This function will pass the email & password property of state object from Redux into login component above
 const mapStateToProps = state => {
     return {
         email: state.auth.email,
