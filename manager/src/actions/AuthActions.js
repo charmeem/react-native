@@ -1,4 +1,4 @@
-/* Action Creator for initial login Form
+/* Action Creators for initial login Form
  * This function sends action and state to the reducers to be stored and execute further from there.
  * Separate action creators are defined for each actions
  */
