@@ -1,14 +1,13 @@
-import React, { Component } from 'react';
 import _ from 'lodash';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Text, View, ListView } from 'react-native';
+import {  ListView } from 'react-native';
 import { employeesFetch } from '../actions';
+import ListItem from './ListItem';
 
 class EmployeeList extends Component {
-
-    //employeesFetch action creator trigger from this lifecycle component
     componentWillMount(){
-
+        //console.log(this.props);
         this.props.employeesFetch();
 
         this.createDataSource(this.props);
@@ -21,7 +20,7 @@ class EmployeeList extends Component {
      * mapStateToProps method
      */
     componentWillReceiveProps(nextProps){
-
+        //console.log(nextProps);
         this.createDataSource(nextProps);
 
     }
@@ -39,15 +38,21 @@ class EmployeeList extends Component {
 
         this.dataSource = ds.cloneWithRows(employees);
     }
+
+    renderRow(employee){
+        /* renderRow returns single 'employee' of employees in datasource object */
+        return <ListItem employee={employee} />;
+    }
+
     render() {
+        //console.log(this.props);
         return (
-          <View>
-              <Text>Babloo Mufti</Text>
-              <Text>Babloo Mufti</Text>
-              <Text>Babloo Mufti</Text>
-              <Text>Babloo Mufti</Text>
-              <Text>Babloo is here</Text>
-          </View>
+          <ListView
+              enableEmptySections
+              dataSource={this.dataSource}
+              renderRow={this.renderRow}
+          />
+
         );
     }
 
@@ -61,10 +66,12 @@ const mapStateToProps = state => {
   * .map does the iteration of key value pair of state.employees object
   * and then put that in an array
   */
+  //console.log(state);
 
-  const employees = _.map(state.employees, (val, uid)=>{
-     return { ...val, uid};
-  });
+//for detail about below code see Steve lesson 149
+const employees = _.map(state.employees, (val, uid)=>{
+    return { ...val, uid };
+    });
   return { employees };   // This employees is now converted into array
 };
 

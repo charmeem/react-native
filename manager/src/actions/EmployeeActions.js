@@ -6,7 +6,7 @@
  */
 
 import firebase from 'firebase';
-import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEES_FETCH_SUCCESS } from "./types";
+import {EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEES_FETCH_SUCCESS, EMPLOYEE_SAVE_SUCCESS} from "./types";
 import {Actions} from 'react-native-router-flux';
 
 
@@ -39,14 +39,29 @@ export const createEmployee = ({ name, phone, shift }) => {
 
 //Action creator for reading employees from firebase
 export const employeesFetch = () => {
-
     const { currentUser } = firebase.auth();
-
+// on is event handler watching any change in employee list
     return (dispatch) => {
+
         firebase.database().ref(`/users/${currentUser.uid}/employees`)
-            // on is event handler watching any change in employee list
             .on('value', snapshot => {
                 dispatch({type: EMPLOYEES_FETCH_SUCCESS, payload: snapshot.val()});
+                //dispatching to EmployeeReducer
+                //console.log(snapshot.val());
+            });
+    };
+};
+
+// Action creator for Update form
+export const employeeSave = ({name,phone,shift, uid}) => {
+    const {currentUser} = firebase.auth();
+    return (dispatch) => {
+        firebase.database().ref(`users/${currentUser.uid}/employees/${uid}`)
+            .set({name, phone, shift})
+            .then(()=> {
+                dispatch({type: EMPLOYEE_SAVE_SUCCESS});
+                // resetting old values once save success in firebase by using employeeformreducer
+                Actions.employeeList({type: 'reset'});
             });
     };
 };

@@ -16,7 +16,7 @@ const INITIAL_STATE = {
 };
 
 export default (state= INITIAL_STATE, action) => {
-    console.log(action);
+    //console.log(action);
 
     switch (action.type) {
         case EMAIL_CHANGED:
@@ -25,8 +25,9 @@ export default (state= INITIAL_STATE, action) => {
         // Above line means:
         // make new state object with all the existing properties copied into it.
         // Then overwrite email property with action.payload. when this new object is
-        // send to the redux it will found that the email property has changed
-        // so it sends this new value to the react component.
+        // send to the redux it will compare old State with new State object and
+        // found that the email property has changed
+        // so it sends this new State object to the react component.
 
         case PASS_CHANGED:
             return { ...state, password:action.payload};

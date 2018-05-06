@@ -93,3 +93,8 @@ Solution : I typed "{this.onEmailChange().bind(this)}" instead of
    Solution: I did new install of react and flux as below:
              npm intall --save react
               npm install --save react-native-router-flux
+
+20. Github reports Security vulnaribility in package-lock.json file
+     solution : update hoek package as
+                npm i hoek
+               Then commit and send to github

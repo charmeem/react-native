@@ -1,6 +1,6 @@
 /* Reducer for Employee Form */
 
-import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE} from "../actions/types";
+import {EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEE_SAVE_SUCCESS} from "../actions/types";
 
 const INITIAL_STATE = {
     name:'',
@@ -16,8 +16,9 @@ export default (state= INITIAL_STATE, action) => {
             //[action.payload.prop] is key interpolation not an array
 
         case EMPLOYEE_CREATE:
-            //reset the form old values
-            return INITIAL_STATE;
+            return INITIAL_STATE;        //reset the form old values
+        case EMPLOYEE_SAVE_SUCCESS:
+            return INITIAL_STATE;       //reset the form old values
         default:
             return state;
     }

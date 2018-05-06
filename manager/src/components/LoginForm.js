@@ -97,6 +97,7 @@ const styles = {
 
 // This function will pass the email & password property of state object from Redux into login component above
 const mapStateToProps = state => {
+    //console.log(state);
     return {
         email: state.auth.email,
         password: state.auth.password,
