@@ -14,9 +14,10 @@ class ListItem extends Component {
         const {name} = this.props.employee;
         //console.log({name});
         return (
-            <TouchableWithoutFeedback onPress={this.onRowPress.bind(this)}>
-                <View>
-                    <CardSection>
+            <TouchableWithoutFeedback
+                onPress={this.onRowPress.bind(this)}>
+                <View style={styles.cardStyle}>
+                    <CardSection >
                         <Text style={styles.textStyle}>
                             {name}
                         </Text>
@@ -29,7 +30,10 @@ class ListItem extends Component {
 const styles = {
     textStyle: {
         paddingLeft:15,
-        fontSize:20
+        fontSize:20,
+    },
+    cardStyle:{
+        backgroundColor:'blue'
     }
 };
 

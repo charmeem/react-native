@@ -1,6 +1,6 @@
 /* Reducer for Employee Form */
 
-import {EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEE_SAVE_SUCCESS} from "../actions/types";
+import {EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEE_SAVE_SUCCESS, EMPLOYEES_FETCH_SUCCESS} from "../actions/types";
 
 const INITIAL_STATE = {
     name:'',

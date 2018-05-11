@@ -7,6 +7,7 @@ import { employeeUpdate, createEmployee } from '../actions';
 import EmployeeForm from "./EmployeeForm";
 
 class EmployeeCreate extends Component {
+
     onButtonPress(){
         const {name, phone, shift} = this.props;
         this.props.createEmployee({name, phone, shift: shift||'Monday'});    //action creator send to redux

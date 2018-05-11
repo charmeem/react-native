@@ -6,7 +6,8 @@
  */
 
 import firebase from 'firebase';
-import {EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEES_FETCH_SUCCESS, EMPLOYEE_SAVE_SUCCESS} from "./types";
+import {EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEES_FETCH_SUCCESS,
+    EMPLOYEE_SAVE_SUCCESS} from "./types";
 import {Actions} from 'react-native-router-flux';
 
 
@@ -48,6 +49,7 @@ export const employeesFetch = () => {
                 dispatch({type: EMPLOYEES_FETCH_SUCCESS, payload: snapshot.val()});
                 //dispatching to EmployeeReducer
                 //console.log(snapshot.val());
+
             });
     };
 };
@@ -64,4 +66,16 @@ export const employeeSave = ({name,phone,shift, uid}) => {
                 Actions.employeeList({type: 'reset'});
             });
     };
+};
+
+export const employeeDelete = ({ uid}) => {
+    const {currentUser} = firebase.auth();
+    return()=> (
+        firebase.database().ref(`users/${currentUser.uid}/employees/${uid}`)
+        .remove()
+            /* not dispatching anything to reducer */
+        .then(()=> {
+            Actions.employeeList({type:'reset'});
+        })
+    );
 };
