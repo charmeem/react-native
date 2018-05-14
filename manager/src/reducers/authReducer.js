@@ -39,7 +39,7 @@ export default (state= INITIAL_STATE, action) => {
             /* by using ...INITIAL_STATE abovewe are resetting email, password etc. once user login successfully */
 
         case LOGIN_USER_FAIL:
-            return { ...state, error:'Authentication Failed', password:'', loading: false};
+            return { ...state, error:'Please enter valid email and password', password:'', loading: false};
         default:
             return state;
     }

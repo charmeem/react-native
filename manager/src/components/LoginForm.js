@@ -28,6 +28,7 @@ class LoginForm extends Component {
 
     //Error function to be run when Error state received from Redux
     renderError() {
+        console.log(this.props.error);
         if (this.props.error) {
             return (
                 <View style={{backgroundColor:'white'}}>
