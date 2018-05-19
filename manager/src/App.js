@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
+import { ImageBackground} from 'react-native'
 import { createStore, applyMiddleware } from 'redux';
 // applyMiddleware above is library used for redux-thunk
 import ReduxThunk from 'redux-thunk';
@@ -27,10 +28,13 @@ class App extends Component {
         // argument {} is used for initial value if needed, applyMid.. is known as store enhancer , adding redux thunk functionality
 
         return (
-            <Provider store={ store }>
-                < Router />
-            </Provider>
+
+                <Provider store={ store }>
+                    < Router />
+                </Provider>
+
         );
     }
 }
+
 export default App;

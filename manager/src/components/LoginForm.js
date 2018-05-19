@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View , Text} from 'react-native';
+import { View , Text, Image,ImageBackground} from 'react-native';
 import { connect } from 'react-redux';
 import { Card, CardSection, Input, Button, Spinner } from './common';
 import { emailChanged, passChanged, loginUser } from '../actions';
@@ -56,8 +56,18 @@ class LoginForm extends Component {
     render() {
 
         return (
-          <Card>
-              <CardSection>
+
+         <ImageBackground
+            source={require('../assets/meeting.jpg')}
+            style={styles.container}
+             //resizeMode='stretch'
+            >
+
+          <View style={styles.inner}>
+
+            <Card >
+
+                <CardSection>
                   <Input
                       label="Email"
                       placeholder="mmufti@hotmail.com"
@@ -83,6 +93,10 @@ class LoginForm extends Component {
               </CardSection>
 
           </Card>
+
+          </View>
+
+         </ImageBackground>
         );
     }
 }
@@ -92,6 +106,19 @@ const styles = {
         fontSize:20,
         alignSelf:'center',
         color:'red'
+    },
+    container:{
+        flex:1,
+        height:600,
+        alignItems:'center',
+        //justifyContent:'center'
+    },
+    inner:{
+        //height:'80%',
+        width:'90%',
+        //alignItems:'center',
+        //justifyContent:'center',
+        backgroundColor: 'rgba(255, 255, 255, .7)'
     }
 
 };

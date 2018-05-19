@@ -102,3 +102,5 @@ Solution : I typed "{this.onEmailChange().bind(this)}" instead of
 21. Could not define new user in login .
     Solution: Give suitable password that fulfils google criterea e.g see following that works
              user: babloo@go.com psw:Whereis1234
+
+22. Changing Start screen look:
