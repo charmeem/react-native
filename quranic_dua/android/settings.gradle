@@ -1,0 +1,3 @@
+rootProject.name = 'quranic_dua'
+
+include ':app'
