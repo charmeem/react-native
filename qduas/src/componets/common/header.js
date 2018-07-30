@@ -15,15 +15,18 @@ const Header = (prop) => {
 
 const styles = {
   viewStole: {
-      backgroundColor: '#e0ebeb',
+      // backgroundColor: '#e0ebeb',
+      backgroundColor: 'black',
       justifyContent: 'center',
       alignItems: 'center',
       height: 60,
-      paddingTop: 15,
+      //paddingTop: 15,
       elevation:5
   },
   textStyle: {
-    fontSize: 20
+    fontSize: 30,
+      fontWeight:"bold",
+      color:'white'
   }
 
 

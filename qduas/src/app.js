@@ -4,12 +4,14 @@ import { createStore} from 'redux';
 import { Provider } from 'react-redux';
 import { Header } from "./componets/common/header";
 import reducers from './reducers';
+import PrayersList from './componets/PrayersList'
 
 const App = () => {
     return (
         <Provider store={createStore(reducers)}>
-            <View>
-                <Header headerText="O Allah, our Lord"/>
+            <View style={{flex:1}}>
+                <Header headerText="Our Lord"/>
+                <PrayersList/>
             </View>
 
         </Provider>
