@@ -53,7 +53,28 @@ class ListItem extends Component {
         // let colors= [ '#e95c2f', '#edca54','#48b07b','#5b5147','#77f683'];
         // let colors= [ '#b9cad1', '#cfcdd0','#d2cdc7','#dfd2a5','#db9068','#c76a62'];
         // let colors= ['#FDB53F','#fffc95','#b9cad1','#48b07b', '#cec6bb','#db9068','#c1333f', '#dfd2a5','#3c3c3c','#fe7877','#ebe3d6','#4a525f' ,'#77f683','#acb8b8', '#667ea0','#b95754'];
-        let colors=['#a5c0ff','#ff963f','#04363d','#ffc6bf','#ffc68f','#100900','#c6d1d2','#6f06cf','#fff3f0','#01cfff','#fffcc6','#eee700','#ff5a44','#bfffd0','#eb720d','#145599', "#0de1ff", '#ffd882', '#82ffb8', '#d189ff']
+        let colors=[
+            '#ff963f',
+            '#a5c0ff',
+            '#04363d',
+            '#ffc6bf',
+            '#eee700',
+            '#ffc68f',
+            '#034410',
+            '#fffcc6',
+            '#eb720d',
+            '#c6d1d2',
+            '#6f06cf',
+            '#fff3f0',
+            '#01cfff',
+            '#ff5a44',
+            '#bfffd0',
+            '#145599',
+            "#0de1ff",
+            '#ffd882',
+            '#d189ff',
+            '#82ffb8',
+            ]
 
         const {title, id, description} = this.props.library;
 
@@ -88,7 +109,6 @@ class ListItem extends Component {
 const styles=StyleSheet.create({
     itemContainer:{
         color:"black",
-        textShadow:'none',
         fontSize:29,
         padding:15
     },
