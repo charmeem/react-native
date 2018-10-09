@@ -7,10 +7,13 @@
     "test": "jest"
   },
   "dependencies": {
+    "cryptiles": "^4.1.2",
+    "fresh": "^0.5.2",
     "react": "16.3.1",
     "react-native": "^0.57.2",
     "react-redux": "^5.0.7",
-    "redux": "^4.0.0"
+    "redux": "^4.0.0",
+    "sshpk": "^1.14.2"
   },
   "devDependencies": {
     "babel-jest": "23.4.0",
