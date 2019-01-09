@@ -4,6 +4,8 @@
 
 import React, {componentDidMount} from 'react';
 import { Button, SectionList, StyleSheet, Text,View } from 'react-native';
+import {Provider} from 'react-redux'
+import store from './redux/store'
 import {Constants} from 'expo'
 import {  createStackNavigator, createSwitchNavigator, createBottomTabNavigator } from 'react-navigation';
 import AddContactScreen from "./screens/AddContactScreen";
@@ -79,7 +81,9 @@ export default class App extends React.Component {
     render() {
 
        return (
+           <Provider store={store}>
             <AppNavigator />
+           </Provider>
         );
     }
 
