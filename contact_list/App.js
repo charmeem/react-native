@@ -60,15 +60,15 @@ export default class App extends React.Component {
     }
 
 
-    componentDidMount(){
-        this.getUsers()
-    }
-
-    getUsers = async () => {
-        const results = await fetchUsers()
-        this.setState({contacts:results})
-
-    }
+    // componentDidMount(){
+    //     this.getUsers()
+    // }
+    //
+    // getUsers = async () => {
+    //     const results = await fetchUsers()
+    //     this.setState({contacts:results})
+    //
+    // }
 
   addContact = newContact => {
         this.setState(prevState => ({
@@ -79,12 +79,7 @@ export default class App extends React.Component {
     render() {
 
        return (
-            <AppNavigator
-                screenProps={{
-                contacts: this.state.contacts,
-                addContact:this.addContact,
-            }}
-            />
+            <AppNavigator />
         );
     }
 
